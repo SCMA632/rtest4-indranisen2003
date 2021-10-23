@@ -1,18 +1,18 @@
 df.score = read.csv('IPL Ball-by-Ball 2008-2020.csv', header=TRUE)
 names(df.score)
-View(df.score)
+#View(df.score)
 dim(df.score)
 
 library(dplyr)
 runs  = df.score %>%
   group_by(batsman, id)%>%
   summarize(score = sum(batsman_runs))
-View(runs)
+#View(runs)
 unique(runs$batsman)
 dim(runs)
 
 runs$round = substr(runs$id, start = 1, stop = 3)
-View(runs)
+#View(runs)
 str(runs$round)
 unique(runs$round)
 #SUBSETTING
@@ -42,7 +42,7 @@ plot(density(rahul$score))
 wickets  = df.score %>%
   group_by(bowler, id)%>%
   summarize(score = sum(is_wicket))
-View(wickets)
+#View(wickets)
 
 calynn = wickets[wickets$bowler=='CA Lynn',]
 hist(calynn$score)  
